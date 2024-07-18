@@ -9,7 +9,7 @@ it.
 const { SERVICE_TOKEN, DEV_TOKEN, BASIC } = require('./proxy/authMethods');
 
 const proxy = (() => {
-    switch (process.env.REACT_APP_AUTH_METHOD) {
+    switch (import.meta.env.VITE_APP_AUTH_METHOD) {
       case SERVICE_TOKEN:
         // Use Service token exchange for Cloud Env PROD
         return require('./proxy/setupProxy.auth.service-token');

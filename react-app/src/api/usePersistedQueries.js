@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import aemHeadlessClient from "./aemHeadlessClient";
 
 // environment variable for configuring the headless client
-const { DISABLE_CACHE, REACT_APP_GRAPHQL_ENDPOINT} = process.env;
+const { DISABLE_CACHE, VITE_APP_GRAPHQL_ENDPOINT} = import.meta.env;
 
 /**
  * This file contains the React useEffect custom hooks that:
@@ -87,10 +87,10 @@ export function useAdventuresByActivity(adventureActivity, params) {
         queryVariables = { ...queryVariables, activity: adventureActivity };
 
         // Call the AEM GraphQL persisted query named "[graphql endpoint namespace]/adventures-by-activity" with parameters
-        response = await fetchPersistedQuery(REACT_APP_GRAPHQL_ENDPOINT + "/adventures-by-activity", queryVariables);
+        response = await fetchPersistedQuery(VITE_APP_GRAPHQL_ENDPOINT + "/adventures-by-activity", queryVariables);
       } else {
         // Call the AEM GraphQL persisted query named "[graphql endpoint namespace]/adventures-all"
-        response = await fetchPersistedQuery(REACT_APP_GRAPHQL_ENDPOINT + "/adventures-all", queryVariables);
+        response = await fetchPersistedQuery(VITE_APP_GRAPHQL_ENDPOINT + "/adventures-all", queryVariables);
       }
 
       // Sets the adventures variable to the list of adventure JSON objects
@@ -132,7 +132,7 @@ export function useAdventureBySlug(slugName, params) {
 
       // Call the AEM GraphQL persisted query named "[graphql endpoint namespace]/adventure-by-slug" with parameters
       response = await fetchPersistedQuery(
-        REACT_APP_GRAPHQL_ENDPOINT + "/adventure-by-slug",
+        VITE_APP_GRAPHQL_ENDPOINT + "/adventure-by-slug",
         queryVariables
       );
 

@@ -7,7 +7,7 @@ accordance with the terms of the Adobe license agreement accompanying
 it.
 */
 const { createProxyMiddleware } = require('http-proxy-middleware');
-const {REACT_APP_HOST_URI } = process.env;
+const {VITE_APP_HOST_URI } = import.meta.env;
 
 /*
     Set up a proxy with AEM for local development
@@ -17,7 +17,7 @@ module.exports = function(app) {
   app.use(
     ['/content', '/graphql'],
     createProxyMiddleware({
-      target: REACT_APP_HOST_URI,
+      target: VITE_APP_HOST_URI,
       changeOrigin: true
     })
   );

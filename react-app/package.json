@@ -4,25 +4,29 @@
   "private": true,
   "dependencies": {
     "@adobe/aem-headless-client-js": "^3.3.0",
+    "@adobe/alloy": "^2.18.0",
     "@babel/plugin-proposal-optional-chaining": "^7.21.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
+    "@vitejs/plugin-react-swc": "^3.7.0",
     "express-session": "^1.17.3",
     "http-proxy-middleware": "^2.0.6",
     "normalize-scss": "^7.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.10.0",
-    "react-scripts": "5.0.1",
     "sass": "^1.60.0",
-    "util": "^0.12.5"
+    "util": "^0.12.5",
+    "vite": "^5.3.4",
+    "vite-plugin-commonjs": "^0.10.1",
+    "vite-plugin-svgr": "^4.2.0",
+    "vite-tsconfig-paths": "^4.3.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
   },
   "eslintConfig": {
     "extends": "react-app"

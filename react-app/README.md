@@ -37,16 +37,16 @@ Continual               | 6.5.13+ |  [WKND Shared 2.0+](https://github.com/adobe
 
 Several [environment variables](https://create-react-app.dev/docs/adding-custom-environment-variables) are used by this project to connect to an AEM environment. Default connects to an AEM author environment running at http://localhost:4502. If you wish to change this behavior update the `.env.development` file accordingly:
 
-* `REACT_APP_HOST_URI=http://localhost:4502` - Set to AEM target host
-* `REACT_APP_AUTH_METHOD=` - The preferred authentication method.
+* `VITE_APP_HOST_URI=http://localhost:4502` - Set to AEM target host
+* `VITE_APP_AUTH_METHOD=` - The preferred authentication method.
   * `service-token` - use Service token exchange for Cloud Env PROD
   * `dev-token` - use Dev token for local development with Cloud Env
   * `basic` - use user/pass for local development with Local Author Env
   * leave blank to use no authentication method
-* `REACT_APP_BASIC_AUTH_USER=admin` - set basic auth user credentials to use if connecting to an AEM Author environment (for development only). If connecting to a Publish environment, this setting is not necessary.
-* `REACT_APP_BASIC_AUTH_PASS=admin` - set the basic auth password used for connecting to an AEM Author environment (for development only). If connecting to a Publish environment, this setting is not necessary.
-* `REACT_APP_DEV_TOKEN` - Dev token string. To connect to remote instance, you can use Bearer auth with a local [DEV token from Cloud console](https://experienceleague.adobe.com/docs/experience-manager-learn/getting-started-with-aem-headless/authentication/local-development-access-token.html)
-* `REACT_APP_SERVICE_TOKEN` - Path to service token file. To connect to remote instance, authentication can be done with [Service token also (download file from Cloud console)](https://experienceleague.adobe.com/docs/experience-manager-learn/getting-started-with-aem-headless/authentication/service-credentials.html)
+* `VITE_APP_BASIC_AUTH_USER=admin` - set basic auth user credentials to use if connecting to an AEM Author environment (for development only). If connecting to a Publish environment, this setting is not necessary.
+* `VITE_APP_BASIC_AUTH_PASS=admin` - set the basic auth password used for connecting to an AEM Author environment (for development only). If connecting to a Publish environment, this setting is not necessary.
+* `VITE_APP_DEV_TOKEN` - Dev token string. To connect to remote instance, you can use Bearer auth with a local [DEV token from Cloud console](https://experienceleague.adobe.com/docs/experience-manager-learn/getting-started-with-aem-headless/authentication/local-development-access-token.html)
+* `VITE_APP_SERVICE_TOKEN` - Path to service token file. To connect to remote instance, authentication can be done with [Service token also (download file from Cloud console)](https://experienceleague.adobe.com/docs/experience-manager-learn/getting-started-with-aem-headless/authentication/service-credentials.html)
 
 ### Proxy API Requests
 

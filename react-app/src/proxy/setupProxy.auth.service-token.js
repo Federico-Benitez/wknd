@@ -9,7 +9,7 @@ it.
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const session = require('express-session')
 const { getToken } = require('@adobe/aem-headless-client-nodejs');
-const { REACT_APP_HOST_URI, REACT_APP_SERVICE_TOKEN } = process.env;
+const { VITE_APP_HOST_URI, VITE_APP_SERVICE_TOKEN } = import.meta.env;
 
 /*
     Set up a proxy with AEM for local development
@@ -26,7 +26,7 @@ module.exports = function(app) {
         ['/content', '/graphql'],
         function (req, res, next) {
             if (!req.session.accessToken) {
-                getToken(REACT_APP_SERVICE_TOKEN)
+                getToken(VITE_APP_SERVICE_TOKEN)
                     .then(({ accessToken, expires }) => {
                         console.log('Token received', accessToken.length, expires)
                         if (accessToken) {
@@ -45,7 +45,7 @@ module.exports = function(app) {
             }
         },
         createProxyMiddleware({
-            target: REACT_APP_HOST_URI,
+            target: VITE_APP_HOST_URI,
             changeOrigin: true
         })
     );

@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import { createInstance } from '@adobe/alloy';
+var alloyLibrary = require('@adobe/alloy');
 
-const alloy = createInstance({ name: 'alloy' });
+var alloy = alloyLibrary.createInstance({ name: 'alloy' });
+
 
 alloy('configure', {
   'edgeConfigId': '4ebed2da-abdb-4649-bbc5-9de3cc24a60d', // AEP Datastream ID
